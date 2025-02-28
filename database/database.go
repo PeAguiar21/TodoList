@@ -2,6 +2,7 @@ package database
 
 import (
 	"context"
+	"log"
 	"time"
 
 	"go.mongodb.org/mongo-driver/mongo"
@@ -25,6 +26,8 @@ func ConnectMongoDB(uri string) error {
 	if err != nil {
 		return err
 	}
+
+	log.Print("Connection with MongoDB was a succeeded")
 
 	return nil
 }

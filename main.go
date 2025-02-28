@@ -2,27 +2,27 @@ package main
 
 import (
 	"log"
-	"os"
 
+	"github.com/PeAguiar21/TodoList/api/routes"
+	"github.com/PeAguiar21/TodoList/config"
 	"github.com/PeAguiar21/TodoList/database"
-	"github.com/joho/godotenv"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
+	config.LoadEnv()
 
-	err := godotenv.Load()
+	err := database.ConnectMongoDB(config.MongoURI)
 	if err != nil {
-		log.Fatal("Error to load file .env")
+		log.Fatalln("Error to connect to mongoDB: ", err.Error())
 	}
 
-	mongoURI := os.Getenv("MONGO_URI")
-	dbName := os.Getenv("DB_NAME")
+	r := gin.Default()
 
-	err = database.ConnectMongoDB(mongoURI)
-	if err != nil {
-		log.Fatal("Error to connect to mongoDB: ", err.Error())
+	routes.SetupRoutes(r)
+
+	if err := r.Run(":8080"); err != nil {
+		log.Fatalln("Erro ao iniciar o servidor:", err)
 	}
 
-	collection := database.GetCollection(dbName, "tasks")
-	log.Printf("Collection %s get with sucess", collection.Name())
 }
