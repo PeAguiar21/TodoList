@@ -14,9 +14,9 @@ Este é o backend de um aplicativo de lista de tarefas (ToDoList) desenvolvido e
 
 - **Golang**: Linguagem de programação utilizada para desenvolver o backend.
 - **MongoDB**: Banco de dados NoSQL para armazenamento das tarefas.
-- **Gorilla Mux**: Biblioteca para roteamento e manipulação de requisições HTTP.
+- **Gin**: Biblioteca para roteamento e manipulação de requisições HTTP.
 - **MongoDB Go Driver**: Driver oficial para conectar e interagir com o MongoDB a partir do Golang.
-- **Environment Variables**: Utilização de variáveis de ambiente para configurações sensíveis, como a conexão com o banco de dados.
+- **Godotenv**: Utilização de variáveis de ambiente para configurações sensíveis, como a conexão com o banco de dados.
 
 ## Pré-requisitos
 
