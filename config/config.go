@@ -21,4 +21,7 @@ func LoadEnv() {
 
 	DbName = os.Getenv("DB_NAME")
 	MongoURI = os.Getenv("MONGO_URI")
+
+	log.Println("Database Name:", DbName)
+	log.Println("Mongo URI:", MongoURI)
 }

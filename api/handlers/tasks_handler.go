@@ -35,12 +35,15 @@ func CreateTask(c *gin.Context) {
 	c.JSON(http.StatusCreated, gin.H{
 		"id":          result.InsertedID,
 		"taskId":      task.TaskId,
-		"name":        task.Name,
+		"title":       task.Title,
+		"description": task.Description,
 		"createdDate": task.CreatedDate,
 		"updatedDate": task.UpdatedDate,
 		"toDoDate":    task.ToDoDate,
 		"isConclued":  task.IsConclued,
 	})
+
+	log.Println("Register included with sucess")
 
 }
 
